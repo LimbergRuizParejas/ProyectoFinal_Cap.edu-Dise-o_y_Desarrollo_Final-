@@ -1,0 +1,142 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #21a365;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+header .logo {
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 200px;
+    margin-right: 1rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+header nav ul li a.btn {
+    background-color: #00695c;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero .hero-text h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.hero .hero-text .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #00695c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.courses {
+    text-align: center;
+    padding: 2rem;
+}
+
+.courses h2 {
+    margin-bottom: 2rem;
+}
+
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.course-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 300px;
+    text-align: center;
+}
+
+.course-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.course-item h3 {
+    margin: 1rem 0;
+}
+
+.course-item p {
+    margin: 0.5rem 0;
+}
+
+footer {
+    background-color: #21a365;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .course-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Administrador</title>
+    <link rel="stylesheet" href="css/adminlogin.css">
+    <script>
+        function validarAdminLogin(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simulación de verificación de credenciales
+            if (username === 'admin' && password === 'admin123') {
+                window.location.href = 'admin.html';
+            } else {
+                alert('Credenciales incorrectas');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/Logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Iniciar Sesion Usuario</a></li>
+                <li><a href="admin_curso.html">Iniciar sesion Administrador</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login">
+          <a href="#"><img src="img/Logo.png" alt=""></a>
+            <h2>Administrador</h2>
+            <form onsubmit="validarAdminLogin(event)">
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" class="btn">Iniciar Sesión</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy;  LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu </p>
+    </footer>
+</body>
+</html>

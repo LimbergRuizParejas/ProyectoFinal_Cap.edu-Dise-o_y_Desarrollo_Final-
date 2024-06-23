@@ -1,0 +1,152 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #21a365;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+header .logo {
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 200px;
+    margin-right: 1rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a, header nav ul li img {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .user-icon {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.filter-bar .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-bar .dropbtn {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.filter-bar .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.filter-bar .search-bar input {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.filter-bar .search-bar button {
+    background-color: #00695c;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.course-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    width: 300px;
+    text-align: center;
+}
+
+.course-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.course-item h3 {
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.progress-bar .progress {
+    background-color: #4caf50;
+    height: 10px;
+}
+
+footer {
+    background-color: #21a365;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .filter-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .filter-bar .dropdown, .filter-bar .search-bar {
+        margin-bottom: 1rem;
+    }
+    .course-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}

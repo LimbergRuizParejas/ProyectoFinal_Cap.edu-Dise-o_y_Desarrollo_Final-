@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - A2 Capacitación</title>
+    <link rel="stylesheet" href="css/Registro.css">
+</head>
+<body>
+<!-- Encabezado con el logotipo -->
+<header>
+    <div class="logo">
+        <img src="img/Logo.png" alt="A2 Capacitación">
+    </div>
+</header>
+
+<!-- Contenedor principal -->
+<main>
+    <!-- Contenedor del formulario de registro -->
+    <section class="register-container">
+        <h2>Registrarse</h2>
+        <form onsubmit="registrarUsuario(event)">
+            <!-- Campo de nombre completo -->
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            <!-- Campo de correo electrónico -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <!-- Campo de contraseña -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <!-- Opciones adicionales -->
+            <div class="form-group options">
+                <input type="checkbox" id="promotions" name="promotions">
+                <label for="promotions">Yes, A2 Capacitación can email me with promotions and news. (optional)</label>
+            </div>
+            <p>
+                By signing up, I agree to A2 Capacitación's Terms of Use & Privacy Policy, and the Terms of Use & Privacy Policy of the learning platform.
+            </p>
+            <!-- Botón de registro -->
+            <button type="submit" class="btn">Registrarse</button>
+        </form>
+        <!-- Enlace para iniciar sesión -->
+        <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesion</a></p>
+    </section>
+</main>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
+</footer>
+
+<script src="js/register.js"></script>
+</body>
+</html>

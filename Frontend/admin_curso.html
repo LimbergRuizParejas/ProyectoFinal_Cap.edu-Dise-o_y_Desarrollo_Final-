@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Cursos</title>
+    <link rel="stylesheet" href="css/Vista_administrador.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/Logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="admin_curso.html">Administrar Cursos</a></li>
+                <li><a href="admin_lecciones.html">Administrar Lecciones</a></li>
+                <li><a href="admin_login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admin-courses">
+            <h2>Administración de Cursos</h2>
+            <button class="btn" onclick="mostrarFormularioCurso()">Agregar Curso</button>
+            <div class="course-list">
+                <div class="course-item">
+                    <img src="img/Imagen1.jpeg" alt="Curso Excel + Macros + Power Pivot">
+                    <h3>Curso Excel + Macros + Power Pivot</h3>
+                    <button class="btn" onclick="editarCurso()">Editar</button>
+                    <button class="btn" onclick="eliminarCurso()">Eliminar</button>
+                </div>
+                <div class="course-item">
+                    <img src="img/Imagen1.jpeg" alt="Excel Módulo 1 - Análisis y Dashboards">
+                    <h3>Excel Módulo 1 - Análisis y Dashboards</h3>
+                    <button class="btn" onclick="editarCurso()">Editar</button>
+                    <button class="btn" onclick="eliminarCurso()">Eliminar</button>
+                </div>
+                <div class="course-item">
+                    <img src="img/Imagen1.jpeg" alt="Excel Módulo 2 - Fórmulas y Funciones - Green Belt">
+                    <h3>Excel Módulo 2 - Fórmulas y Funciones - Green Belt</h3>
+                    <button class="btn" onclick="editarCurso()">Editar</button>
+                    <button class="btn" onclick="eliminarCurso()">Eliminar</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="course-form" id="courseForm" style="display: none;">
+            <h2>Formulario de Curso</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombre">Nombre del Curso:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="imagen">Imagen del Curso:</label>
+                    <input type="file" id="imagen" name="imagen" required>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="submit" class="btn">Guardar</button>
+                    <button type="button" class="btn btn-cancel" onclick="ocultarFormularioCurso()">Cancelar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
+    </footer>
+
+    <script>
+        function mostrarFormularioCurso() {
+            document.getElementById('courseForm').style.display = 'block';
+        }
+        
+        function ocultarFormularioCurso() {
+            document.getElementById('courseForm').style.display = 'none';
+        }
+        
+        function editarCurso() {
+            alert("Editar curso");
+        }
+        
+        function eliminarCurso() {
+            alert("Eliminar curso");
+        }
+    </script>
+</body>
+</html>
