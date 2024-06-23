@@ -15,7 +15,6 @@
         <ul>
             <li><a href="#">Mis Productos</a></li>
             <li><a href="#">Todos los Productos</a></li>
-            <li><a href="#" id="logout">Cerrar sesión</a></li>
             <li><img src="img/Usuario1.jpg" alt="Usuario" class="user-icon"></li>
         </ul>
     </nav>
@@ -36,39 +35,47 @@
     </div>
 
     <div class="course-list">
-        <div class="course-item">
-            <img src="img/Imagen1.jpeg" alt="Curso 1">
-            <h3>Curso Excel + Macros + Power Pivot</h3>
-            <p>4 Paquete de cursos</p>
-            <div class="progress-bar">
-                <div class="progress" style="width: 100%;"></div>
-            </div>
-            <p>100% Completo</p>
-        </div>
-        <div class="course-item">
-            <img src="img/Imagen1.jpeg" alt="Curso 2">
-            <h3>Excel Módulo 1 - Análisis y Dashboards</h3>
-            <p>Dan Contreras González</p>
-            <div class="progress-bar">
-                <div class="progress" style="width: 0%;"></div>
-            </div>
-            <p>0% Completo</p>
-        </div>
-        <div class="course-item">
-            <img src="img/Imagen1.jpeg" alt="Curso 3">
-            <h3>Excel Módulo 2 - Fórmulas y Funciones - Green Belt</h3>
-            <p>Dan Contreras González</p>
-            <div class="progress-bar">
-                <div class="progress" style="width: 100%;"></div>
-            </div>
-            <p>100% Completo</p>
-        </div>
+        <!-- Los cursos se cargarán aquí -->
     </div>
 </main>
 
 <footer>
     <p>&copy; @LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
 </footer>
-<script src="js/vista_Usuario.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const courseList = document.querySelector('.course-list');
+
+        // Obtener y mostrar los cursos
+        const obtenerCursos = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/cursos');
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                const cursos = await response.json();
+                if (!Array.isArray(cursos)) {
+                    throw new Error('La respuesta no es un array de cursos');
+                }
+                courseList.innerHTML = '';
+                cursos.forEach(curso => {
+                    const courseItem = document.createElement('div');
+                    courseItem.classList.add('course-item');
+                    courseItem.innerHTML = `
+                        <img src="/uploads/${curso.imagen}" alt="${curso.nombre}">
+                        <h3>${curso.nombre}</h3>
+                        <p>${curso.descripcion}</p>
+                    `;
+                    courseList.appendChild(courseItem);
+                });
+            } catch (error) {
+                console.error('Error al obtener cursos:', error);
+            }
+        };
+
+        obtenerCursos();
+    });
+</script>
 </body>
 </html>

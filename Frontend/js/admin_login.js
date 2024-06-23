@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
       if (response.ok) {
         alert('Inicio de sesión exitoso.');
-        if (data.user.es_admin) {
+        localStorage.setItem('token', data.token); // Almacena el token en localStorage
+        if (data.user && data.user.es_admin) {
           window.location.href = 'admin_curso.html';
         } else {
           alert('No tiene permisos de administrador.');
