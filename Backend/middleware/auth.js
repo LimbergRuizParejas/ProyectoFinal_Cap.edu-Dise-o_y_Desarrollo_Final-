@@ -13,4 +13,11 @@ const verificarToken = (req, res, next) => {
   }
 };
 
-module.exports = { verificarToken };
+const verificarAdmin = (req, res, next) => {
+  if (!req.user || !req.user.es_admin) {
+    return res.status(403).json({ error: 'Acceso denegado: No eres administrador' });
+  }
+  next();
+};
+
+module.exports = { verificarToken, verificarAdmin };

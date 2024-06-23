@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+/*const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const pool = require('./db');
 
@@ -43,3 +43,4 @@ module.exports = {
   registrarUsuario,
   iniciarSesion,
 };
+*/
