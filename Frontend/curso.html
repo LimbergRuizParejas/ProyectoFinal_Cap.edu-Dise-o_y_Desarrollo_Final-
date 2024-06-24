@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido del Curso</title>
+    <link rel="stylesheet" href="css/curso.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="img/Logo.png" alt="Logo">
+    </div>
+    <nav>
+        <ul>
+
+            <li><a href="vista_Usuario.html">Ir A los Cursos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <aside class="course-sidebar">
+        <h2>Lecciones</h2>
+        <ul id="lessonList">
+            <!-- Lista de lecciones se añadirá aquí -->
+        </ul>
+    </aside>
+
+    <main class="course-content">
+        <div class="course-header">
+            <h1 id="videoTitle">Título del Video</h1>
+            <p id="videoDescription">Descripción del video...</p>
+        </div>
+        <div class="video">
+            <iframe id="cursoVideo" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="document">
+            <iframe src="https://onedrive.live.com/embed?resid=50030D35FF2277D9%213957&authkey=%21ACQQRQhOg4uPLHg&em=2" width="100%" height="600" frameborder="0"></iframe>
+
+        </div>
+        <div class="course-actions">
+            <button id="prevLesson">Clase Previa</button>
+            <button id="nextLesson">Completar y Continuar</button>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <p>&copy; @LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
+</footer>
+
+<script src="js/curso.js"></script>
+</body>
+</html>

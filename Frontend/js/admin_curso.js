@@ -1,4 +1,3 @@
-// js/admin_curso.js
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   const courseList = document.querySelector('.course-list');
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Mostrar el formulario de curso
-  document.querySelector('.btn').addEventListener('click', () => {
+  document.querySelector('.btn-agregar-curso').addEventListener('click', () => {
     document.getElementById('courseForm').style.display = 'block';
   });
 
@@ -58,6 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const descripcion = document.getElementById('descripcion').value;
     const imagen = document.getElementById('imagen').files[0];
 
+    const lecciones = [];
+    document.querySelectorAll('#lecciones .form-group').forEach(leccionContainer => {
+      const titulo = leccionContainer.querySelector('.leccion-titulo').value;
+      const contenido = leccionContainer.querySelector('.leccion-contenido').value;
+      const video_url = leccionContainer.querySelector('.leccion-video-url').value;
+      const documento_url = leccionContainer.querySelector('.leccion-documento-url').value;
+      lecciones.push({ titulo, contenido, video_url, documento_url });
+    });
+
     if (!nombre || !descripcion || !imagen) {
       alert('Todos los campos son obligatorios.');
       return;
@@ -67,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('nombre', nombre);
     formData.append('descripcion', descripcion);
     formData.append('imagen', imagen);
+    formData.append('lecciones', JSON.stringify(lecciones));
 
     try {
       const response = await fetch('http://localhost:3000/api/cursos', {
@@ -112,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Editar curso (deberías implementar el formulario de edición)
   window.editarCurso = (id) => {
-    alert('Editar curso ' + id);
+    localStorage.setItem('cursoId', id);
+    window.location.href = 'editar_curso.html';
   };
 });

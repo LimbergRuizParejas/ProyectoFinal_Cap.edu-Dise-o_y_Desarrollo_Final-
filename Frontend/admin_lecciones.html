@@ -7,91 +7,91 @@
     <link rel="stylesheet" href="css/Vista_administrador.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/Logo.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="admin_curso.html">Administrar Cursos</a></li>
-                <li><a href="admin_lecciones.html">Administrar Lecciones</a></li>
-                <li><a href="admin_login.html">Cerrar Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="logo">
+        <img src="img/Logo.png" alt="Logo">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="admin_curso.html">Administrar Cursos</a></li>
+            <li><a href="admin_lecciones.html">Administrar Lecciones</a></li>
+            <li><a href="admin_login.html">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main>
-        <section class="admin-lessons">
-            <h2>Administración de Lecciones</h2>
-            <button class="btn" onclick="mostrarFormularioLeccion()">Agregar Lección</button>
-            <div class="lesson-list">
-                <div class="lesson-item">
-                    <h3>Introducción</h3>
-                    <button class="btn" onclick="editarLeccion()">Editar</button>
-                    <button class="btn" onclick="eliminarLeccion()">Eliminar</button>
-                </div>
-                <div class="lesson-item">
-                    <h3>Macros</h3>
-                    <button class="btn" onclick="editarLeccion()">Editar</button>
-                    <button class="btn" onclick="eliminarLeccion()">Eliminar</button>
-                </div>
-                <div class="lesson-item">
-                    <h3>Power Pivot</h3>
-                    <button class="btn" onclick="editarLeccion()">Editar</button>
-                    <button class="btn" onclick="eliminarLeccion()">Eliminar</button>
-                </div>
+<main>
+    <section class="admin-lessons">
+        <h2>Administración de Lecciones</h2>
+        <button class="btn" onclick="mostrarFormularioLeccion()">Agregar Lección</button>
+        <div class="lesson-list">
+            <div class="lesson-item">
+                <h3>Introducción</h3>
+                <button class="btn" onclick="editarLeccion()">Editar</button>
+                <button class="btn" onclick="eliminarLeccion()">Eliminar</button>
             </div>
-        </section>
-        
-        <section class="lesson-form" id="lessonForm" style="display: none;">
-            <h2>Formulario de Lección</h2>
-            <form>
-                <div class="form-group">
-                    <label for="titulo">Título de la Lección:</label>
-                    <input type="text" id="titulo" name="titulo" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="contenido">Contenido:</label>
-                    <textarea id="contenido" name="contenido" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="tipo">Tipo de Lección:</label>
-                    <select id="tipo" name="tipo" required>
-                        <option value="texto">Texto</option>
-                        <option value="video">Video</option>
-                    </select>
-                </div>
-                
-                <div class="form-buttons">
-                    <button type="submit" class="btn">Guardar</button>
-                    <button type="button" class="btn btn-cancel" onclick="ocultarFormularioLeccion()">Cancelar</button>
-                </div>
-            </form>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
-    </footer>
+            <div class="lesson-item">
+                <h3>Macros</h3>
+                <button class="btn" onclick="editarLeccion()">Editar</button>
+                <button class="btn" onclick="eliminarLeccion()">Eliminar</button>
+            </div>
+            <div class="lesson-item">
+                <h3>Power Pivot</h3>
+                <button class="btn" onclick="editarLeccion()">Editar</button>
+                <button class="btn" onclick="eliminarLeccion()">Eliminar</button>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        function mostrarFormularioLeccion() {
-            document.getElementById('lessonForm').style.display = 'block';
-        }
-        
-        function ocultarFormularioLeccion() {
-            document.getElementById('lessonForm').style.display = 'none';
-        }
-        
-        function editarLeccion() {
-            alert("Editar lección");
-        }
-        
-        function eliminarLeccion() {
-            alert("Eliminar lección");
-        }
-    </script>
+    <section class="lesson-form" id="lessonForm" style="display: none;">
+        <h2>Formulario de Lección</h2>
+        <form>
+            <div class="form-group">
+                <label for="titulo">Título de la Lección:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo de Lección:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="texto">Texto</option>
+                    <option value="video">Video</option>
+                </select>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="btn">Guardar</button>
+                <button type="button" class="btn btn-cancel" onclick="ocultarFormularioLeccion()">Cancelar</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
+</footer>
+
+<script>
+    function mostrarFormularioLeccion() {
+        document.getElementById('lessonForm').style.display = 'block';
+    }
+
+    function ocultarFormularioLeccion() {
+        document.getElementById('lessonForm').style.display = 'none';
+    }
+
+    function editarLeccion() {
+        alert("Editar lección");
+    }
+
+    function eliminarLeccion() {
+        alert("Eliminar lección");
+    }
+</script>
 </body>
 </html>

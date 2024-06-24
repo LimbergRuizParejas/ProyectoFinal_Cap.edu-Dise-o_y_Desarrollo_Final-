@@ -15,6 +15,7 @@
         <ul>
             <li><a href="#">Mis Productos</a></li>
             <li><a href="#">Todos los Productos</a></li>
+            <li><a href="login.html">Cerrar Sesion</a></li>
             <li><img src="img/Usuario1.jpg" alt="Usuario" class="user-icon"></li>
         </ul>
     </nav>
@@ -40,42 +41,9 @@
 </main>
 
 <footer>
-    <p>&copy; @LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
+    <p>&copy; LimbergRuizParejas Desarrollo y Diseño 2024 Cap.edu</p>
 </footer>
 
-<script>
-    document.addEventListener('DOMContentLoaded', async () => {
-        const courseList = document.querySelector('.course-list');
-
-        // Obtener y mostrar los cursos
-        const obtenerCursos = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/api/cursos');
-                if (!response.ok) {
-                    throw new Error('Error en la respuesta del servidor');
-                }
-                const cursos = await response.json();
-                if (!Array.isArray(cursos)) {
-                    throw new Error('La respuesta no es un array de cursos');
-                }
-                courseList.innerHTML = '';
-                cursos.forEach(curso => {
-                    const courseItem = document.createElement('div');
-                    courseItem.classList.add('course-item');
-                    courseItem.innerHTML = `
-                        <img src="/uploads/${curso.imagen}" alt="${curso.nombre}">
-                        <h3>${curso.nombre}</h3>
-                        <p>${curso.descripcion}</p>
-                    `;
-                    courseList.appendChild(courseItem);
-                });
-            } catch (error) {
-                console.error('Error al obtener cursos:', error);
-            }
-        };
-
-        obtenerCursos();
-    });
-</script>
+<script src="js/vista_Usuario.js"></script>
 </body>
 </html>

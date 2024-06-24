@@ -1,9 +1,11 @@
+// course.js
+
 const express = require('express');
 const router = express.Router();
 const { verificarToken, verificarAdmin } = require('../middleware/auth');
 const multer = require('multer');
 const path = require('path');
-const { obtenerCursos, crearCurso, actualizarCurso, eliminarCurso } = require('../controllers/courseController');
+const { obtenerCursos, crearCurso, actualizarCurso, eliminarCurso, obtenerCursoPorId } = require('../controllers/courseController');
 
 // Configurar Multer para la carga de archivos
 const storage = multer.diskStorage({
@@ -16,9 +18,12 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+// Aplica middleware de autenticación y autorización a todas las rutas de curso
+router.use(verificarToken);
+
 // Rutas CRUD para cursos
-router.get('/', obtenerCursos); // No requiere autenticación
-router.use(verificarToken, verificarAdmin); // Requiere autenticación y ser administrador
+router.get('/', obtenerCursos);
+router.get('/:id', obtenerCursoPorId);
 router.post('/', upload.single('imagen'), crearCurso);
 router.put('/:id', upload.single('imagen'), actualizarCurso);
 router.delete('/:id', eliminarCurso);

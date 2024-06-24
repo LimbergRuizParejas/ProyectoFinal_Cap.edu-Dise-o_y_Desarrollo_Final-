@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
           'x-access-token': token,
         },
       });
-        if (!response.ok) {
-              throw new Error('Error en la respuesta del servidor');
-            }
+      if (!response.ok) {
+        throw new Error('Error en la respuesta del servidor');
+      }
       const cursos = await response.json();
       if (!Array.isArray(cursos)) {
         throw new Error('La respuesta no es un array de cursos');
@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const courseItem = document.createElement('div');
         courseItem.classList.add('course-item');
         courseItem.innerHTML = `
-          <img src="${curso.imagen}" alt="${curso.nombre}">
+          <img src="/uploads/${curso.imagen}" alt="${curso.nombre}">
           <h3>${curso.nombre}</h3>
+          <button class="btn" onclick="verCurso(${curso.id})">Ver Curso</button>
         `;
         courseList.appendChild(courseItem);
       });
@@ -37,4 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   obtenerCursos();
+
+  window.verCurso = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/cursos/${id}`, {
+        headers: {
+          'x-access-token': token,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Error en la respuesta del servidor');
+      }
+      const curso = await response.json();
+      localStorage.setItem('cursoSeleccionado', JSON.stringify(curso));
+      window.location.href = 'curso.html';
+    } catch (error) {
+      console.error('Error al obtener el curso:', error);
+    }
+  };
 });
