@@ -45,6 +45,20 @@
                 <input type="file" id="imagen" name="imagen" required>
             </div>
 
+            <div id="lecciones">
+                <h3>Lecciones</h3>
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="leccion-titulo" required>
+                    <label for="contenido">Contenido</label>
+                    <textarea class="leccion-contenido" required></textarea>
+                    <label for="video_url">URL del Video</label>
+                    <input type="url" class="leccion-video-url">
+                    <label for="documento_url">URL del Documento</label>
+                    <input type="url" class="leccion-documento-url">
+                </div>
+            </div>
+
             <div class="form-buttons">
                 <button type="submit" class="btn">Guardar</button>
                 <button type="button" class="btn btn-cancel">Cancelar</button>

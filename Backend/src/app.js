@@ -1,24 +1,23 @@
+require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const rutasUsuario = require('../routes/user');
-const rutasCurso = require('../routes/course');
 const path = require('path');
-
 const app = express();
-const PORT = 3000;
+const courseRoutes = require('../routes/course'); // Asegúrate de que la ruta sea correcta
+const userRoutes = require('../routes/user'); // Asegúrate de que la ruta sea correcta
+const { verificarToken, verificarAdmin } = require('../middleware/auth');
 
+// Middlewares
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Servir archivos estáticos desde el directorio 'uploads'
-app.use('/uploads', express.static(path.join(__dirname, '../../uploads')));
+// Rutas
+app.use('/api/cursos', courseRoutes);
+app.use('/api/usuarios', userRoutes); // Asegúrate de que la ruta coincida
 
-app.use('/api/users', rutasUsuario);
-app.use('/api/cursos', rutasCurso);
-
+// Puerto
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
-
-module.exports = app;

@@ -1,3 +1,5 @@
+// routes/user.js
+
 const express = require('express');
 const router = express.Router();
 const { registrarUsuario, iniciarSesion } = require('../controllers/userController');

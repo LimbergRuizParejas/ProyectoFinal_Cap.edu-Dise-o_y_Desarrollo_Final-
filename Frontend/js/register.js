@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
-  form.addEventListener('submit', async (event) => {
+  const form = document.getElementById('registerForm');
+  form.onsubmit = async (event) => {
     event.preventDefault();
-    const fullName = document.getElementById('full-name').value;
+
+    const nombre_completo = document.getElementById('full-name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:3000/api/users/registrar', { // Ruta corregida
+      const response = await fetch('http://localhost:3000/api/usuarios/registrar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ fullName, email, password }),
+        body: JSON.stringify({ nombre_completo, email, password }),
       });
+
       const data = await response.json();
       if (response.ok) {
-        alert('Registro exitoso.');
+        alert('Usuario registrado exitosamente.');
         window.location.href = 'login.html';
       } else {
         alert(data.error);
@@ -24,5 +26,5 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Error:', error);
     }
-  });
+  };
 });
